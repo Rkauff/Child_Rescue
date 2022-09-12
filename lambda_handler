@@ -1,0 +1,14 @@
+import os
+import boto3
+
+def lambda_handler(event, context):
+    
+    client =boto3.client(
+        "sns",
+        aws_access_key_id=os.environ['aws_access_key'],
+        aws_secret_access_key=os.environ['aws_secret_key'])
+        
+    client.publish(
+        PhoneNumber='<+YOUR NUMBER HERE>',
+        Message="HELP!! I'M TRAPPED IN A HOT CAR!! NEED ASSISTANCE IMMEDIATELY!!")
+        
